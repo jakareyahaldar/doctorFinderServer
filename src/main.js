@@ -17,6 +17,11 @@ app.use(cors({
 app.use('/doctor/',doctorRoute)
 app.use('/auth/',authRoute)
 
+// Sample route 
+app.get("/",(req,resp)=>{
+    resp.json({ status: "server is running." })
+})
+
 
 
 module.exports = app
