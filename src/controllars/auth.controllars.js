@@ -43,15 +43,14 @@ module.exports = {
     token_verify: async (req, resp)=>{
         try{
 
-            const cookie = req.headers.cookie 
-            const sliceCookie = cookie.split(";")
-            const tokenIndex = sliceCookie.findIndex( e => e.includes("admin_token"))
-            if(tokenIndex === -1){
-                resp.json({ verified: false })
-                return
-            }
-            console.log()
-            const token = sliceCookie[tokenIndex].split("=")[1]
+            // const cookie = req.headers.cookie 
+            // const sliceCookie = cookie.split(";")
+            // const tokenIndex = sliceCookie.findIndex( e => e.includes("admin_token"))
+            // if(tokenIndex === -1){
+            //     resp.json({ verified: false })
+            //     return
+            // }
+            const token = req.headers.admin_token //sliceCookie[tokenIndex].split("=")[1]
             if(!token){
                 resp.json({ verified: false })
                 return
